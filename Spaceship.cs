@@ -14,9 +14,12 @@ namespace WinFormsSpaceInvadersTheme
         private int rocketImageCounter = 0;
 
         private System.Windows.Forms.Timer AnimationTimer = null;
+        private Bullet bullet = null;
+        private Game mainGame = null;
 
-        public Spaceship()
+        public Spaceship(Game game)
         {
+            mainGame = game;
             this.Height = 160;
             this.Width = 80;
             this.BackColor = Color.Transparent;
@@ -42,6 +45,14 @@ namespace WinFormsSpaceInvadersTheme
             {
                 rocketImageCounter = 0;
             }
+        }
+
+        public void FireBullet()
+        {
+            bullet = new Bullet();
+            bullet.Top  = mainGame.ClientRectangle.Height - this.Height - bullet.Height;
+            bullet.Left = this.Left + 40;
+            mainGame.Controls.Add(bullet);
         }
 
     }

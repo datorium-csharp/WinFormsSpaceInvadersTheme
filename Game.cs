@@ -10,7 +10,7 @@ namespace WinFormsSpaceInvadersTheme
         public Game()
         {
             InitializeComponent();
-            spaceship = new Spaceship();
+            spaceship = new Spaceship(this);
             spaceship.Left = 300;
             spaceship.Top = this.ClientRectangle.Height - spaceship.Height;
             this.Controls.Add(spaceship);
@@ -33,6 +33,11 @@ namespace WinFormsSpaceInvadersTheme
             {
                 horVelocity = -step;
             }
+            else if (e.KeyCode == Keys.Space)
+            {
+                //fire a bullet
+            }
+
         }
 
         private void GameTimer_Tick(object sender, EventArgs e)
