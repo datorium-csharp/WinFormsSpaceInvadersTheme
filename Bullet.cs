@@ -34,6 +34,11 @@ namespace WinFormsSpaceInvadersTheme
         private void BulletTimer_Tick(object sender, EventArgs e)
         {
             this.Top -= step;
+            if(this.Top < -this.Height)
+            {
+                bulletTimer.Stop();
+                this.Dispose();
+            }
         }
     }
 }
