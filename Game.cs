@@ -35,7 +35,7 @@ namespace WinFormsSpaceInvadersTheme
             }
             else if (e.KeyCode == Keys.Space)
             {
-                //fire a bullet
+                spaceship.FireBullet();
             }
 
         }

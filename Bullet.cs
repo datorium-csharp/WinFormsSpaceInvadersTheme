@@ -12,13 +12,28 @@ namespace WinFormsSpaceInvadersTheme
     internal class Bullet : PictureBox
     {
 
+        private int step = 5;
+        private System.Windows.Forms.Timer bulletTimer = null;
+
         public Bullet()
         {
-            this.Height = 200;
-            this.Width = 20;
+            this.Height = 50;
+            this.Width = 2;
             this.BackColor = Color.Red;
+            InitialiseBulletTimer();
         }
 
+        private void InitialiseBulletTimer()
+        {
+            bulletTimer = new System.Windows.Forms.Timer();
+            bulletTimer.Interval = 10;
+            bulletTimer.Tick += BulletTimer_Tick;
+            bulletTimer.Start();
+        }
 
+        private void BulletTimer_Tick(object sender, EventArgs e)
+        {
+            this.Top -= step;
+        }
     }
 }
